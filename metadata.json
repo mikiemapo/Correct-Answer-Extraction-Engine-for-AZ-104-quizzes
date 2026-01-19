@@ -1,0 +1,5 @@
+{
+  "name": "QuizWise - Answer Extraction Engine",
+  "description": "A professional tool for extracting correctly answered questions from AZ-104 practice quiz results into structured formats for NotebookLM, Anki, and databases.",
+  "requestFramePermissions": []
+}
