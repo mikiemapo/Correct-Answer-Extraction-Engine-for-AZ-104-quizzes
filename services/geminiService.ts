@@ -27,8 +27,8 @@ export const extractCorrectAnswers = async (
   quizText: string,
   domain: string
 ): Promise<ExtractedQuestion[]> => {
-  const apiKey = (process.env.API_KEY as string) || "";
-  const ai = new GoogleGenAI({ apiKey });
+  // Initialize Gemini API with the required parameter format and direct environment variable access
+  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
   const response = await ai.models.generateContent({
     model: 'gemini-3-flash-preview',
@@ -52,6 +52,7 @@ export const extractCorrectAnswers = async (
     },
   });
 
+  // Access text output using the .text property of GenerateContentResponse as per guidelines
   const text = response.text || "[]";
   try {
     return JSON.parse(text);
